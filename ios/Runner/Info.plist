@@ -47,5 +47,12 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+	 <key>NSAllowsArbitaryLoads</key>
+	 <true/>
+	</dict>
+	<!-- <key>NSMicrophonneUsageDescription</key>
+	<string>explain why the app uses microphone here</string> -->
 </dict>
 </plist>
