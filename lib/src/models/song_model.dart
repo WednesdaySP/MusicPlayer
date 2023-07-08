@@ -21,26 +21,26 @@ class Song {
         title: 'Maan Meri Jaan',
         description: 'King',
         url: 'assets/audio/Maan Meri Jaan(PagalWorld.com.se).mp3',
-        coverUrl: 'assets/images/app2.webp'),
+        coverUrl: 'assets/images/maanmerijan.jpeg'),
     Song(
         title: 'Pehli Baarish Mein',
         description: 'Darshan Rawal',
         url: 'assets/audio/_Pehli Baarish Mein(PagalWorld.com.se).mp3',
-        coverUrl: 'assets/images/app2.webp'),
+        coverUrl: 'assets/images/baarishonm.jpeg'),
     Song(
         title: 'Tere Hawaale',
         description: 'Arijit Singh',
         url: 'assets/audio/Tere Hawaale(PagalWorld.com.se).mp3',
-        coverUrl: 'assets/images/app2.webp'),
+        coverUrl: 'assets/images/terehawale.jpeg'),
     Song(
         title: 'Maan Meri Jaan',
         description: 'King',
         url: 'assets/audio/Maan Meri Jaan(PagalWorld.com.se).mp3',
-        coverUrl: 'assets/images/app2.webp'),
+        coverUrl: 'assets/images/maanmerijan.jpeg'),
     Song(
-        title: 'DjMusic',
+        title: 'Dil Galti',
         description: 'music',
-        url: 'assets/audio/Maan Meri Jaan(PagalWorld.com.se).mp3',
+        url: 'assets/audio/Dil Galti Kar Baitha Hai(PagalWorld.com.se).mp3',
         coverUrl: 'assets/images/app2.webp'),
   ];
 }

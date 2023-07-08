@@ -11,22 +11,22 @@ class DrawerSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: Colors.black,
-      child: ListView(padding: EdgeInsets.zero, children: [
-        SizedBox(
+      child: ListView(padding: EdgeInsets.zero, shrinkWrap: true, children: [
+        const SizedBox(
           height: 400,
           child: DrawerHeader(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const CircleAvatar(
+                CircleAvatar(
                   radius: 60,
                   backgroundImage: AssetImage('assets/images/jk.jpeg'),
                 ),
-                const Text(
+                Text(
                   'Jungkook',
                   style: TextStyle(color: Colors.white),
                 ),
-                const Text(
+                Text(
                   'Bio: lorem lipsumlp lorem dolors ta mine bruder'
                   'jefejfefieife ifhiuhriu ueien kjhfuih ffj',
                   style: TextStyle(color: Colors.white),

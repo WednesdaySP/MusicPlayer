@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:appcontainer/src/utilities/constants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -145,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: const Text(
           'LOGIN',
           style: TextStyle(
-            color: Color(0xFF527DAA),
+            color: Color.fromARGB(255, 118, 67, 141),
             letterSpacing: 1.5,
             fontSize: 18.0,
             fontWeight: FontWeight.bold,
@@ -177,7 +178,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _buildSocialBtn(Function onTap, AssetImage logo) {
     return GestureDetector(
-      onTap: (null),
+      onTap: () {},
       child: Container(
         height: 60.0,
         width: 60.0,
@@ -206,13 +207,13 @@ class _LoginScreenState extends State<LoginScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           _buildSocialBtn(
-            () => print('Login with Facebook'),
+            () => print('Login with facebook'),
             const AssetImage(
               'assets/logos/facebook.png',
             ),
           ),
           _buildSocialBtn(
-            () => print('Login with Google'),
+            () => print('Login with google'),
             const AssetImage(
               'assets/logos/google.png',
             ),
@@ -221,6 +222,15 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+
+  // _launchUrl() async {
+  //   const url = 'https://www.google.com';
+  //   if (await canLaunchUrl(url as Uri)) {
+  //     await launch(url);
+  //   } else {
+  //     throw 'Could not launch $url';
+  //   }
+  // }
 
   Widget _buildSignupBtn() {
     return GestureDetector(
@@ -267,10 +277,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      Color(0xFF73AEF5),
-                      Color(0xFF61A4F1),
-                      Color(0xFF478DE0),
-                      Color(0xFF398AE5),
+                      Color.fromARGB(255, 189, 86, 233),
+                      Color.fromARGB(255, 188, 97, 241),
+                      Color.fromARGB(255, 150, 71, 224),
+                      Color.fromARGB(255, 151, 40, 210),
                     ],
                     stops: [0.1, 0.4, 0.7, 0.9],
                   ),
@@ -308,6 +318,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       _buildSignInWithText(),
                       _buildSocialBtnRow(),
                       _buildSignupBtn(),
+                      // _launchUrl()
                     ],
                   ),
                 ),

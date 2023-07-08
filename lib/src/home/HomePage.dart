@@ -1,11 +1,16 @@
 import 'package:appcontainer/src/models/TopScrollModel.dart';
+import 'package:appcontainer/src/models/artist_model.dart';
+import 'package:appcontainer/src/models/darshan_model.dart';
 import 'package:appcontainer/src/models/song_model.dart';
+import 'package:appcontainer/src/widgets/artist_card.dart';
+import 'package:appcontainer/src/widgets/section_header.dart';
 import 'package:flutter/material.dart';
 import 'package:appcontainer/src/widgets/song_card.dart';
 //import 'package:appcontainer/src/widgets/widgets.dart';
-import 'package:appcontainer/src/widgets/topscroll_file.dart';
+import 'package:appcontainer/src/widgets/topscoll_card.dart';
 
 import '../components/Drawer_Section.dart';
+import '../widgets/darshanhit_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,6 +24,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     List<Song> songs = Song.songs;
     List<TopScroll> playlists = TopScroll.playlists;
+    List<Artist> arts = Artist.arts;
+    List<Darshan> superhits = Darshan.superhits;
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -121,33 +128,11 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  //Album.......
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(15, 10, 15, 5),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          ' ✨Darshan Rawal Super Hit songs',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 25,
-                          ),
-                        ),
-                        Icon(
-                          Icons.arrow_forward_ios_outlined,
-                          color: Colors.white,
-                          size: 25,
-                        )
-                      ],
-                    ),
+                  SizedBox(
+                    height: 8,
                   ),
-
-                  //pageview scroll........child: ListView.builder(
-                  // scrollDirection: Axis.horizontal,
-                  // itemBuilder: (context, index) {
-                  //  return SongCard(song: songs[index]);
-                  // }),
+                  //Album.......
+                  SectionHeader(title: '✨Recently Played'),
 
                   Container(
                     margin: const EdgeInsets.fromLTRB(18, 5, 18, 5),
@@ -160,653 +145,41 @@ class _HomePageState extends State<HomePage> {
                           return TopScroll_card(playlist: playlists[index]);
                         }),
                   ),
-
+                  SizedBox(
+                    height: 8,
+                  ),
                   //Playlist............
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(15, 10, 15, 5),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          '💫Recently played',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 25,
-                          ),
-                        ),
-                        Icon(
-                          Icons.arrow_forward_ios_outlined,
-                          color: Colors.white,
-                          size: 25,
-                        )
-                      ],
-                    ),
-                  ),
+                  SectionHeader(title: '💫Darshan Rawal Superhits'),
 
                   Container(
-                    margin: const EdgeInsets.fromLTRB(18, 5, 18, 5),
+                    margin: EdgeInsets.fromLTRB(18, 5, 18, 5),
                     height: 200,
                     width: width,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SingleChildScrollView(
+                    child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            Container(
-                              margin: const EdgeInsets.only(right: 18),
-                              height: 150,
-                              width: 120,
-                              decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15)),
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                        'assets/images/iskdr.jpeg',
-                                      ),
-                                      opacity: 8,
-                                      filterQuality: FilterQuality.high,
-                                      scale: 0.2,
-                                      fit: BoxFit.cover)),
-                            ),
-                            Container(
-                              margin: const EdgeInsets.only(right: 18),
-                              height: 150,
-                              width: 120,
-                              decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15)),
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                        'assets/images/ekterfa1.jpeg',
-                                      ),
-                                      opacity: 8,
-                                      filterQuality: FilterQuality.high,
-                                      scale: 0.2,
-                                      fit: BoxFit.cover)),
-                            ),
-                            Container(
-                              margin: const EdgeInsets.only(right: 18),
-                              height: 150,
-                              width: 120,
-                              decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15)),
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                        'assets/images/song3.jpeg',
-                                      ),
-                                      opacity: 8,
-                                      filterQuality: FilterQuality.high,
-                                      scale: 0.2,
-                                      fit: BoxFit.cover)),
-                            ),
-                            Container(
-                              margin: const EdgeInsets.only(right: 18),
-                              height: 150,
-                              width: 120,
-                              decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15)),
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                        'assets/images/duniya.jpeg',
-                                      ),
-                                      opacity: 8,
-                                      filterQuality: FilterQuality.high,
-                                      scale: 0.2,
-                                      fit: BoxFit.cover)),
-                            ),
-                            Container(
-                              margin: const EdgeInsets.only(right: 18),
-                              height: 150,
-                              width: 120,
-                              decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15)),
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                        'assets/images/asalmein1.jpeg',
-                                      ),
-                                      opacity: 8,
-                                      filterQuality: FilterQuality.high,
-                                      scale: 0.2,
-                                      fit: BoxFit.cover)),
-                            ),
-                            Container(
-                              margin: const EdgeInsets.only(right: 18),
-                              height: 150,
-                              width: 120,
-                              decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15)),
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                        'assets/images/baarishonm.jpeg',
-                                      ),
-                                      opacity: 8,
-                                      filterQuality: FilterQuality.high,
-                                      scale: 0.2,
-                                      fit: BoxFit.cover)),
-                            ),
-                            Container(
-                              margin: const EdgeInsets.only(right: 18),
-                              height: 150,
-                              width: 120,
-                              decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15)),
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                        'assets/images/song2.jpeg',
-                                      ),
-                                      opacity: 8,
-                                      filterQuality: FilterQuality.high,
-                                      scale: 0.2,
-                                      fit: BoxFit.cover)),
-                            ),
-                            Container(
-                              margin: const EdgeInsets.only(right: 18),
-                              height: 150,
-                              width: 120,
-                              decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15)),
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                        'assets/images/song1.jpeg',
-                                      ),
-                                      opacity: 8,
-                                      filterQuality: FilterQuality.high,
-                                      scale: 0.2,
-                                      fit: BoxFit.cover)),
-                            ),
-                            Container(
-                              margin: const EdgeInsets.only(right: 18),
-                              height: 150,
-                              width: 120,
-                              decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15)),
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                        'assets/images/song3.jpeg',
-                                      ),
-                                      opacity: 8,
-                                      filterQuality: FilterQuality.high,
-                                      scale: 0.2,
-                                      fit: BoxFit.cover)),
-                            ),
-                            Container(
-                              margin: const EdgeInsets.only(right: 18),
-                              height: 150,
-                              width: 120,
-                              decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15)),
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                        'assets/images/ekterfa1.jpeg',
-                                      ),
-                                      opacity: 8,
-                                      filterQuality: FilterQuality.high,
-                                      scale: 0.2,
-                                      fit: BoxFit.cover)),
-                            ),
-                            Container(
-                              margin: const EdgeInsets.only(right: 18),
-                              height: 150,
-                              width: 120,
-                              decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15)),
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                        'assets/images/asalmein1.jpeg',
-                                      ),
-                                      opacity: 8,
-                                      filterQuality: FilterQuality.high,
-                                      scale: 0.2,
-                                      fit: BoxFit.cover)),
-                            ),
-                            Container(
-                              margin: const EdgeInsets.only(right: 18),
-                              height: 150,
-                              width: 120,
-                              decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15)),
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                        'assets/images/duniya.jpeg',
-                                      ),
-                                      opacity: 8,
-                                      filterQuality: FilterQuality.high,
-                                      scale: 0.2,
-                                      fit: BoxFit.cover)),
-                            ),
-                            Container(
-                              margin: const EdgeInsets.only(right: 18),
-                              height: 150,
-                              width: 120,
-                              decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(15)),
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                        'assets/images/sriksri.jpeg',
-                                      ),
-                                      opacity: 8,
-                                      filterQuality: FilterQuality.high,
-                                      scale: 0.2,
-                                      fit: BoxFit.cover)),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                        itemCount: superhits.length,
+                        itemBuilder: (context, index) {
+                          return DarshanHits(superhit: superhits[index]);
+                        }),
                   ),
-
+                  SizedBox(
+                    height: 8,
+                  ),
                   // Favourite Artist..............................................
-
-                  Container(
-                    margin: const EdgeInsets.fromLTRB(15, 10, 15, 5),
-                    child: const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          '😍Your favourite artists',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 25,
-                          ),
-                        ),
-                        Icon(
-                          Icons.arrow_forward_ios_outlined,
-                          color: Colors.white,
-                          size: 25,
-                        )
-                      ],
-                    ),
-                  ),
+                  SectionHeader(title: '😍Your favourite artists'),
 
                   Container(
                     margin: const EdgeInsets.fromLTRB(18, 5, 18, 5),
                     height: 200,
                     width: width,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: SingleChildScrollView(
+                    child: ListView.builder(
                         scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            Container(
-                              margin: const EdgeInsets.fromLTRB(10, 5, 10, 0),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Container(
-                                    margin: const EdgeInsets.only(right: 20),
-                                    height: 150,
-                                    width: 150,
-                                    decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(100)),
-                                        image: DecorationImage(
-                                            image: AssetImage(
-                                              'assets/images/jk.jpeg',
-                                            ),
-                                            opacity: 20,
-                                            filterQuality: FilterQuality.high,
-                                            scale: 0.2,
-                                            fit: BoxFit.cover)),
-                                  ),
-                                  const Text(
-                                    'Jungkook',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                            Container(
-                                margin: const EdgeInsets.fromLTRB(10, 5, 10, 0),
-                                child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin:
-                                            const EdgeInsets.only(right: 20),
-                                        height: 150,
-                                        width: 150,
-                                        decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(100)),
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                  'assets/images/jimin.jpeg',
-                                                ),
-                                                opacity: 20,
-                                                filterQuality:
-                                                    FilterQuality.high,
-                                                scale: 0.2,
-                                                fit: BoxFit.cover)),
-                                      ),
-                                      const Text(
-                                        'Jimin',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      )
-                                    ])),
-                            Container(
-                                margin: const EdgeInsets.fromLTRB(10, 5, 10, 0),
-                                child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin:
-                                            const EdgeInsets.only(right: 20),
-                                        height: 150,
-                                        width: 150,
-                                        decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(100)),
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                  'assets/images/drs.jpeg',
-                                                ),
-                                                opacity: 20,
-                                                filterQuality:
-                                                    FilterQuality.high,
-                                                scale: 0.2,
-                                                fit: BoxFit.cover)),
-                                      ),
-                                      const Text(
-                                        'Darshan Rawal',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      )
-                                    ])),
-                            Container(
-                                margin: const EdgeInsets.fromLTRB(10, 5, 10, 0),
-                                child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin:
-                                            const EdgeInsets.only(right: 20),
-                                        height: 150,
-                                        width: 150,
-                                        decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(100)),
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                  'assets/images/jubin.jpeg',
-                                                ),
-                                                opacity: 20,
-                                                filterQuality:
-                                                    FilterQuality.high,
-                                                scale: 0.2,
-                                                fit: BoxFit.cover)),
-                                      ),
-                                      const Text(
-                                        'Jubin Nautyal',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      )
-                                    ])),
-                            Container(
-                                margin: const EdgeInsets.fromLTRB(10, 5, 10, 0),
-                                child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin:
-                                            const EdgeInsets.only(right: 20),
-                                        height: 150,
-                                        width: 150,
-                                        decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(100)),
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                  'assets/images/shreya.jpeg',
-                                                ),
-                                                opacity: 20,
-                                                filterQuality:
-                                                    FilterQuality.high,
-                                                scale: 0.2,
-                                                fit: BoxFit.cover)),
-                                      ),
-                                      const Text(
-                                        'Shreya Ghosla',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      )
-                                    ])),
-                            Container(
-                                margin: const EdgeInsets.fromLTRB(10, 5, 10, 0),
-                                child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin:
-                                            const EdgeInsets.only(right: 20),
-                                        height: 150,
-                                        width: 150,
-                                        decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(100)),
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                  'assets/images/selena.jpeg',
-                                                ),
-                                                opacity: 20,
-                                                filterQuality:
-                                                    FilterQuality.high,
-                                                scale: 0.2,
-                                                fit: BoxFit.cover)),
-                                      ),
-                                      const Text(
-                                        'Selena Gomez',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      )
-                                    ])),
-                            Container(
-                                margin: const EdgeInsets.fromLTRB(10, 5, 10, 0),
-                                child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin:
-                                            const EdgeInsets.only(right: 20),
-                                        height: 150,
-                                        width: 150,
-                                        decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(100)),
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                  'assets/images/lata.jpeg',
-                                                ),
-                                                opacity: 20,
-                                                filterQuality:
-                                                    FilterQuality.high,
-                                                scale: 0.2,
-                                                fit: BoxFit.cover)),
-                                      ),
-                                      const Text(
-                                        'Lata Mangeshkar',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      )
-                                    ])),
-                            Container(
-                                margin: const EdgeInsets.fromLTRB(10, 5, 10, 0),
-                                child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin:
-                                            const EdgeInsets.only(right: 20),
-                                        height: 150,
-                                        width: 150,
-                                        decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(100)),
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                  'assets/images/kk.jpeg',
-                                                ),
-                                                opacity: 20,
-                                                filterQuality:
-                                                    FilterQuality.high,
-                                                scale: 0.2,
-                                                fit: BoxFit.cover)),
-                                      ),
-                                      const Text(
-                                        'KK',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      )
-                                    ])),
-                            Container(
-                                margin: const EdgeInsets.fromLTRB(10, 5, 10, 0),
-                                child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin:
-                                            const EdgeInsets.only(right: 20),
-                                        height: 150,
-                                        width: 150,
-                                        decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(100)),
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                  'assets/images/edd.jpeg',
-                                                ),
-                                                opacity: 20,
-                                                filterQuality:
-                                                    FilterQuality.high,
-                                                scale: 0.2,
-                                                fit: BoxFit.cover)),
-                                      ),
-                                      const Text(
-                                        'Ed Sheren',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      )
-                                    ])),
-                            Container(
-                                margin: const EdgeInsets.fromLTRB(10, 5, 10, 0),
-                                child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin:
-                                            const EdgeInsets.only(right: 20),
-                                        height: 150,
-                                        width: 150,
-                                        decoration: const BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(100)),
-                                            image: DecorationImage(
-                                                image: AssetImage(
-                                                  'assets/images/siddhu.jpeg',
-                                                ),
-                                                opacity: 20,
-                                                filterQuality:
-                                                    FilterQuality.high,
-                                                scale: 0.2,
-                                                fit: BoxFit.cover)),
-                                      ),
-                                      const Text(
-                                        'Siddhu Moosewala',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      )
-                                    ])),
-                            Container(
-                                margin: const EdgeInsets.fromLTRB(10, 5, 10, 0),
-                                child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Container(
-                                        margin:
-                                            const EdgeInsets.only(right: 20),
-                                        height: 150,
-                                        width: 150,
-                                        decoration: const BoxDecoration(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(100)),
-                                          image: DecorationImage(
-                                              image: AssetImage(
-                                                'assets/images/sonu.jpeg',
-                                              ),
-                                              opacity: 20,
-                                              filterQuality: FilterQuality.high,
-                                              scale: 0.2,
-                                              fit: BoxFit.cover),
-                                        ),
-                                      ),
-                                      const Text(
-                                        'Sonu Nigam',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      )
-                                    ])),
-                          ],
-                        ),
-                      ),
-                    ),
+                        itemCount: playlists.length,
+                        itemBuilder: (context, index) {
+                          return ArtistCard(
+                            art: arts[index],
+                          );
+                        }),
                   ),
                 ],
               ),

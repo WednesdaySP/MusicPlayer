@@ -1,4 +1,4 @@
-import 'package:appcontainer/src/models/TopScrollModel.dart';
+import 'package:appcontainer/src/models/artist_songs.dart';
 import 'package:flutter/material.dart';
 
 class PlaylistScreen extends StatelessWidget {
@@ -6,19 +6,10 @@ class PlaylistScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TopScroll playlist = TopScroll.playlists[0];
+    Jungkook jkplay = Jungkook.jkplays[0];
 
     return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Colors.deepPurple.shade800.withOpacity(0.8),
-            Colors.deepPurple.shade200.withOpacity(0.8),
-          ],
-        ),
-      ),
+      decoration: BoxDecoration(color: Colors.black),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
@@ -31,10 +22,10 @@ class PlaylistScreen extends StatelessWidget {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
-                _PlaylistInformation(playlist: playlist),
+                _PlaylistInformation(jkplay: jkplay),
                 const SizedBox(height: 30),
                 const _PlayOrShuffleSwitch(),
-                _PlaylistSongs(playlist: playlist),
+                _PlaylistSongs(jkplay: jkplay),
               ],
             ),
           ),
@@ -47,17 +38,17 @@ class PlaylistScreen extends StatelessWidget {
 class _PlaylistSongs extends StatelessWidget {
   const _PlaylistSongs({
     Key? key,
-    required this.playlist,
+    required this.jkplay,
   }) : super(key: key);
 
-  final TopScroll playlist;
+  final Jungkook jkplay;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: playlist.music.length,
+      itemCount: jkplay.url.length,
       itemBuilder: (context, index) {
         return ListTile(
           leading: Text(
@@ -67,18 +58,18 @@ class _PlaylistSongs extends StatelessWidget {
                 .bodyMedium!
                 .copyWith(fontWeight: FontWeight.bold),
           ),
-          // title: Text(
-          //   playlist.music[index].title,
-          //   style: Theme.of(context)
-          //       .textTheme
-          //       .bodyLarge!
-          //       .copyWith(fontWeight: FontWeight.bold),
-          // ),
-          // subtitle: Text('${playlist.music[index].description} ⚬ 02:45'),
-          // trailing: const Icon(
-          //   Icons.more_vert,
-          //   color: Colors.white,
-          // ),
+          title: Text(
+            jkplay.url[index],
+            style: Theme.of(context)
+                .textTheme
+                .bodyLarge!
+                .copyWith(fontWeight: FontWeight.bold),
+          ),
+          subtitle: Text('${jkplay.url[index]} ⚬ 02:45'),
+          trailing: const Icon(
+            Icons.more_vert,
+            color: Colors.white,
+          ),
         );
       },
     );
@@ -184,10 +175,10 @@ class _PlayOrShuffleSwitchState extends State<_PlayOrShuffleSwitch> {
 class _PlaylistInformation extends StatelessWidget {
   const _PlaylistInformation({
     Key? key,
-    required this.playlist,
+    required this.jkplay,
   }) : super(key: key);
 
-  final TopScroll playlist;
+  final Jungkook jkplay;
 
   @override
   Widget build(BuildContext context) {
@@ -196,7 +187,7 @@ class _PlaylistInformation extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.circular(15.0),
           child: Image.network(
-            playlist.imageUrl,
+            jkplay.coverUrl,
             height: MediaQuery.of(context).size.height * 0.3,
             width: MediaQuery.of(context).size.height * 0.3,
             fit: BoxFit.cover,
@@ -204,7 +195,7 @@ class _PlaylistInformation extends StatelessWidget {
         ),
         const SizedBox(height: 30),
         Text(
-          playlist.title,
+          jkplay.title,
           style: Theme.of(context)
               .textTheme
               .headlineSmall!

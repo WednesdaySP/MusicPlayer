@@ -1,5 +1,6 @@
+import 'package:appcontainer/src/models/TopScrollModel.dart';
 import 'package:flutter/material.dart';
-import 'package:appcontainer/src/models/song_model.dart';
+
 import 'package:get/get.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:rxdart/rxdart.dart' as rxdart;
@@ -7,16 +8,16 @@ import 'package:rxdart/rxdart.dart' as rxdart;
 import '../widgets/player_buttons.dart';
 import '../widgets/seekbar.dart';
 
-class SongScreen extends StatefulWidget {
-  const SongScreen({super.key});
+class RecentScreen extends StatefulWidget {
+  const RecentScreen({super.key});
 
   @override
-  State<SongScreen> createState() => _SongScreenState();
+  State<RecentScreen> createState() => _RecentScreenState();
 }
 
-class _SongScreenState extends State<SongScreen> {
+class _RecentScreenState extends State<RecentScreen> {
   AudioPlayer audioPlayer = AudioPlayer();
-  Song song = Get.arguments ?? Song.songs[0];
+  TopScroll playlist = Get.arguments ?? TopScroll.playlists[0];
 
   @override
   void initState() {
@@ -26,22 +27,28 @@ class _SongScreenState extends State<SongScreen> {
       ConcatenatingAudioSource(
         children: [
           AudioSource.uri(
-            Uri.parse('asset:///${song.url}'),
+            Uri.parse('asset:///${playlist.music}'),
           ),
           AudioSource.uri(
-            Uri.parse('asset:///${Song.songs[1].url}'),
+            Uri.parse('asset:///${TopScroll.playlists[1].music}'),
           ),
           AudioSource.uri(
-            Uri.parse('asset:///${Song.songs[2].url}'),
+            Uri.parse('asset:///${TopScroll.playlists[2].music}'),
           ),
           AudioSource.uri(
-            Uri.parse('asset:///${Song.songs[3].url}'),
+            Uri.parse('asset:///${TopScroll.playlists[3].music}'),
           ),
           AudioSource.uri(
-            Uri.parse('asset:///${Song.songs[4].url}'),
+            Uri.parse('asset:///${TopScroll.playlists[4].music}'),
           ),
           AudioSource.uri(
-            Uri.parse('asset:///${Song.songs[5].url}'),
+            Uri.parse('asset:///${TopScroll.playlists[5].music}'),
+          ),
+          AudioSource.uri(
+            Uri.parse('asset:///${TopScroll.playlists[6].music}'),
+          ),
+          AudioSource.uri(
+            Uri.parse('asset:///${TopScroll.playlists[7].music}'),
           ),
         ],
       ),
@@ -77,12 +84,12 @@ class _SongScreenState extends State<SongScreen> {
         fit: StackFit.expand,
         children: [
           Image.asset(
-            song.coverUrl,
+            playlist.imageUrl,
             fit: BoxFit.cover,
           ),
           const _BackgroundFilter(),
-          _SongPlayer(
-              song: song,
+          _MusicPlayer(
+              playlist: playlist,
               seekBarDataStream: _seekBarDataStream,
               audioPlayer: audioPlayer)
         ],
@@ -91,14 +98,14 @@ class _SongScreenState extends State<SongScreen> {
   }
 }
 
-class _SongPlayer extends StatelessWidget {
-  const _SongPlayer({
+class _MusicPlayer extends StatelessWidget {
+  const _MusicPlayer({
     super.key,
-    required this.song,
+    required this.playlist,
     required Stream<SeekBarData> seekBarDataStream,
     required this.audioPlayer,
   }) : _seekBarDataStream = seekBarDataStream;
-  final Song song;
+  final TopScroll playlist;
 
   final Stream<SeekBarData> _seekBarDataStream;
   final AudioPlayer audioPlayer;
@@ -112,7 +119,7 @@ class _SongPlayer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            song.title,
+            playlist.title,
             style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -120,7 +127,7 @@ class _SongPlayer extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Text(
-            song.description,
+            playlist.description,
             maxLines: 2,
             style: Theme.of(context)
                 .textTheme
