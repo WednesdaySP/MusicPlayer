@@ -35,49 +35,33 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: [
           Container(
-            width: width,
+            width: double.infinity,
             child: Row(
               children: [
-                Container(
-                  width: 130,
-                  height: 50,
-                  child: TextButton(
-                    child: const Image(
-                      image: AssetImage(
-                        'assets/images/logo.jpg',
-                      ),
-                      fit: BoxFit.cover,
-                    ),
-                    onPressed: () => {
-                      _scaffoldState.currentState!.openDrawer(),
-                    },
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.fromLTRB(450, 15, 450, 0),
-                  height: 40,
-                  width: 400,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 191, 6, 223),
-                    borderRadius: BorderRadius.circular(25),
-                  ),
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                SafeArea(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Icon(
-                        Icons.search,
-                        color: Colors.white,
-                        weight: 20,
-                      ),
-                      Text(
-                        'Artists, songs or podcasts',
-                        //textAlign: TextAlign.start,
-                        style: TextStyle(
+                      TextButton(
+                        child: Icon(
+                          Icons.sort_rounded,
                           color: Colors.white,
-                          fontWeight: FontWeight.w300,
-                          fontSize: 15,
+                          size: 30,
                         ),
+                        onPressed: () => {
+                          _scaffoldState.currentState!.openDrawer(),
+                        },
+                      ),
+                      SizedBox(
+                        width: 230,
+                      ),
+                      TextButton(
+                        child: Icon(
+                          Icons.search_sharp,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                        onPressed: () => {},
                       ),
                     ],
                   ),
@@ -94,7 +78,8 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: [
                   Container(
-                    margin: const EdgeInsets.fromLTRB(75, 10, 75, 10),
+                    //margin: const EdgeInsets.fromLTRB(75, 10, 75, 10),
+                    padding: EdgeInsets.only(bottom: 9),
                     child: const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -149,7 +134,7 @@ class _HomePageState extends State<HomePage> {
                     height: 8,
                   ),
                   //Playlist............
-                  SectionHeader(title: '💫Darshan Rawal Superhits'),
+                  SectionHeader(title: '💫Blue Family'),
 
                   Container(
                     margin: EdgeInsets.fromLTRB(18, 5, 18, 5),
@@ -165,7 +150,7 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     height: 8,
                   ),
-                  // Favourite Artist..............................................
+                  // Favourite Artist........................
                   SectionHeader(title: '😍Your favourite artists'),
 
                   Container(

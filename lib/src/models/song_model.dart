@@ -23,7 +23,7 @@ class Song {
         url: 'assets/audio/Maan Meri Jaan(PagalWorld.com.se).mp3',
         coverUrl: 'assets/images/maanmerijan.jpeg'),
     Song(
-        title: 'Pehli Baarish Mein',
+        title: 'Pehli Baarish',
         description: 'Darshan Rawal',
         url: 'assets/audio/_Pehli Baarish Mein(PagalWorld.com.se).mp3',
         coverUrl: 'assets/images/baarishonm.jpeg'),

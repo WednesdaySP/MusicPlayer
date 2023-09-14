@@ -3,6 +3,7 @@
 import 'package:appcontainer/src/home/PlayListScreen.dart';
 import 'package:appcontainer/src/home/RecentPlayScreen.dart';
 import 'package:appcontainer/src/home/SongScreen.dart';
+import 'package:appcontainer/src/home/Splash_screen.dart';
 import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:appcontainer/src/home/HomePage.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
               displayColor: Colors.white,
             ),
       ),
-      home: const HomePage(),
+      home: const Musica(),
       getPages: [
         GetPage(name: '/', page: () => const HomePage()),
         GetPage(name: '/song', page: () => const SongScreen()),

@@ -12,6 +12,7 @@ class SectionHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      // width: double.infinity,
       margin: const EdgeInsets.fromLTRB(15, 10, 15, 5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
