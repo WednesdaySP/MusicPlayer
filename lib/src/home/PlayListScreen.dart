@@ -1,4 +1,5 @@
-import 'package:appcontainer/src/models/artist_songs.dart';
+import 'package:appcontainer/src/models/JK_songs.dart';
+
 import 'package:flutter/material.dart';
 
 class PlaylistScreen extends StatelessWidget {

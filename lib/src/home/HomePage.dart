@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          '🎵Music Player🎵',
+                          '🎵MUSICA🎵',
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.w400,
