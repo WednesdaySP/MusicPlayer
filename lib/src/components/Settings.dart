@@ -1,3 +1,4 @@
+import 'package:appcontainer/src/home/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:appcontainer/src/utilities/constants.dart';
@@ -127,7 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
       padding: const EdgeInsets.symmetric(vertical: 25.0),
       width: double.infinity,
       child: ElevatedButton(
-        onPressed: () => print('Login Button Pressed'),
+        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));},
 
         style: ElevatedButton.styleFrom(
             elevation: 5.0,

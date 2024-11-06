@@ -1,4 +1,5 @@
 import 'package:appcontainer/src/models/JK_songs.dart';
+import 'package:appcontainer/src/models/artist_model.dart';
 
 import 'package:flutter/material.dart';
 
@@ -7,7 +8,9 @@ class PlaylistScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Jungkook jkplay = Jungkook.jkplays[0];
+    //Jungkook jkplay = Jungkook.jkplays[0];
+    List<Jungkook> jkplays = Jungkook.jkplays;
+    List<Artist> arts=Artist.arts;
 
     return Container(
       decoration: BoxDecoration(color: Colors.black),
@@ -16,17 +19,17 @@ class PlaylistScreen extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          title: const Text('Playlist'),
+          title: const Text('Playlist',style: TextStyle(color: Colors.white),),
         ),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
-                _PlaylistInformation(jkplay: jkplay),
+                _PlaylistInformation(artist: arts[0]),
                 const SizedBox(height: 30),
                 const _PlayOrShuffleSwitch(),
-                _PlaylistSongs(jkplay: jkplay),
+                _PlaylistSongs(jkplays: jkplays),
               ],
             ),
           ),
@@ -39,18 +42,19 @@ class PlaylistScreen extends StatelessWidget {
 class _PlaylistSongs extends StatelessWidget {
   const _PlaylistSongs({
     Key? key,
-    required this.jkplay,
+    required this.jkplays,
   }) : super(key: key);
 
-  final Jungkook jkplay;
+  final List<Jungkook> jkplays;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: jkplay.url.length,
+      itemCount: jkplays.length,
       itemBuilder: (context, index) {
+        final jkplay = jkplays[index];
         return ListTile(
           leading: Text(
             '${index + 1}',
@@ -60,13 +64,17 @@ class _PlaylistSongs extends StatelessWidget {
                 .copyWith(fontWeight: FontWeight.bold),
           ),
           title: Text(
-            jkplay.url[index],
+            jkplay.title,
             style: Theme.of(context)
                 .textTheme
                 .bodyLarge!
                 .copyWith(fontWeight: FontWeight.bold),
           ),
-          subtitle: Text('${jkplay.url[index]} ⚬ 02:45'),
+          // subtitle: Text('${jkplay.description[index]} ⚬ 02:45'),
+                subtitle: Text(
+                  jkplay.description,
+                   style: TextStyle(color: Colors.white70),
+                   ),
           trailing: const Icon(
             Icons.more_vert,
             color: Colors.white,
@@ -176,10 +184,11 @@ class _PlayOrShuffleSwitchState extends State<_PlayOrShuffleSwitch> {
 class _PlaylistInformation extends StatelessWidget {
   const _PlaylistInformation({
     Key? key,
-    required this.jkplay,
+    required this.artist,
   }) : super(key: key);
 
-  final Jungkook jkplay;
+  final Artist artist;
+
 
   @override
   Widget build(BuildContext context) {
@@ -187,8 +196,8 @@ class _PlaylistInformation extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(15.0),
-          child: Image.network(
-            jkplay.coverUrl,
+          child: Image.asset(
+            artist.pic,
             height: MediaQuery.of(context).size.height * 0.3,
             width: MediaQuery.of(context).size.height * 0.3,
             fit: BoxFit.cover,
@@ -196,7 +205,7 @@ class _PlaylistInformation extends StatelessWidget {
         ),
         const SizedBox(height: 30),
         Text(
-          jkplay.title,
+          artist.naam,
           style: Theme.of(context)
               .textTheme
               .headlineSmall!

@@ -1,61 +1,62 @@
+import 'package:appcontainer/src/models/darshan_model.dart';
+import 'package:appcontainer/src/widgets/player_buttons.dart';
+import 'package:appcontainer/src/widgets/seekbar.dart';
 import 'package:flutter/material.dart';
-import 'package:appcontainer/src/models/song_model.dart';
 import 'package:get/get.dart';
-import 'package:just_audio/just_audio.dart';
 import 'package:rxdart/rxdart.dart' as rxdart;
+import 'package:just_audio/just_audio.dart';
 
-import '../widgets/player_buttons.dart';
-import '../widgets/seekbar.dart';
-
-class SongScreen extends StatefulWidget {
-  const SongScreen({super.key});
+class BlueFamily extends StatefulWidget {
+  const BlueFamily({super.key});
 
   @override
-  State<SongScreen> createState() => _SongScreenState();
+  State<BlueFamily> createState() => _BlueFamilyState();
 }
 
-class _SongScreenState extends State<SongScreen> {
-  AudioPlayer audioPlayer = AudioPlayer();
-  Song song = Get.arguments ?? Song.songs[0];
+class _BlueFamilyState extends State<BlueFamily> {
+   AudioPlayer audioPlayer = AudioPlayer();
+  Darshan superhit = Get.arguments ?? Darshan.superhits[0];
 
   @override
-  void initState() {
+void initState() {
     super.initState();
 
     audioPlayer.setAudioSource(
       ConcatenatingAudioSource(
-         useLazyPreparation: true,
         children: [
           AudioSource.uri(
-            Uri.parse('asset:///${song.url}'),
+            Uri.parse('asset:///${superhit.gaana}'),
           ),
-          AudioSource.uri(
-            Uri.parse('asset:///${Song.songs[1].url}'),
+            AudioSource.uri(
+            Uri.parse('asset:///${Darshan.superhits[1].gaana}'),
           ),
-          AudioSource.uri(
-            Uri.parse('asset:///${Song.songs[2].url}'),
+              AudioSource.uri(
+            Uri.parse('asset:///${Darshan.superhits[2].gaana}'),
           ),
-          AudioSource.uri(
-            Uri.parse('asset:///${Song.songs[3].url}'),
+              AudioSource.uri(
+            Uri.parse('asset:///${Darshan.superhits[3].gaana}'),
           ),
-          AudioSource.uri(
-            Uri.parse('asset:///${Song.songs[4].url}'),
+              AudioSource.uri(
+            Uri.parse('asset:///${Darshan.superhits[4].gaana}'),
           ),
-          AudioSource.uri(
-            Uri.parse('asset:///${Song.songs[5].url}'),
+              AudioSource.uri(
+            Uri.parse('asset:///${Darshan.superhits[5].gaana}'),
           ),
-        ],
+              AudioSource.uri(
+            Uri.parse('asset:///${Darshan.superhits[6].gaana}'),
+          ),
+        ], 
       ),
     );
   }
 
-  @override
+   @override
   void dispose() {
     audioPlayer.dispose();
     super.dispose();
   }
 
-  Stream<SeekBarData> get _seekBarDataStream =>
+   Stream<SeekBarData> get _seekBarDataStream =>
       rxdart.Rx.combineLatest2<Duration, Duration?, SeekBarData>(
           audioPlayer.positionStream, audioPlayer.durationStream, (
         Duration position,
@@ -78,12 +79,12 @@ class _SongScreenState extends State<SongScreen> {
         fit: StackFit.expand,
         children: [
           Image.asset(
-            song.coverUrl,
+            superhit.image,
             fit: BoxFit.cover,
           ),
           const _BackgroundFilter(),
-          _SongPlayer(
-              song: song,
+          _MusicPlayer(
+              superhit: superhit,
               seekBarDataStream: _seekBarDataStream,
               audioPlayer: audioPlayer)
         ],
@@ -92,14 +93,16 @@ class _SongScreenState extends State<SongScreen> {
   }
 }
 
-class _SongPlayer extends StatelessWidget {
-  const _SongPlayer({
+
+
+class _MusicPlayer extends StatelessWidget {
+  const _MusicPlayer({
     super.key,
-    required this.song,
+    required this.superhit,
     required Stream<SeekBarData> seekBarDataStream,
     required this.audioPlayer,
   }) : _seekBarDataStream = seekBarDataStream;
-  final Song song;
+  final Darshan superhit;
 
   final Stream<SeekBarData> _seekBarDataStream;
   final AudioPlayer audioPlayer;
@@ -113,7 +116,7 @@ class _SongPlayer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            song.title,
+            superhit.title,
             style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -121,7 +124,7 @@ class _SongPlayer extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Text(
-            song.description,
+            superhit.description,
             maxLines: 2,
             style: Theme.of(context)
                 .textTheme
@@ -204,3 +207,4 @@ class _BackgroundFilter extends StatelessWidget {
     );
   }
 }
+
