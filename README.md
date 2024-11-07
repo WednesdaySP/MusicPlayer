@@ -11,6 +11,7 @@ This flutter app is known as MUSICA, The Home to Your Music.
 So, just dive into it and enjoy ad-free music listening 😉😁🎶.
 
 
+![project-2](https://github.com/user-attachments/assets/c803d4a0-18a2-46b4-b6a8-1cd904a00870)
 
 ![Picture1](https://github.com/WednesdaySP/MusicPlayer/assets/122176467/36b06979-105f-484a-8543-515e91e5468d)
 ![Picture2](https://github.com/WednesdaySP/MusicPlayer/assets/122176467/a91bfb52-83eb-4026-b4eb-2d62cafc0667)
