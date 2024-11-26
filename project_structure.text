@@ -1,0 +1,298 @@
+- .flutter-plugins
+- .flutter-plugins-dependencies
+- .fvmrc
+- .github
+  - ISSUE_TEMPLATE
+    - bug_report.md
+    - feature_request.md
+- .gitignore
+- .metadata
+- analysis_options.yaml
+- android
+  - .gitignore
+  - .gradle
+    - 8.0
+      - checksums
+        - checksums.lock
+        - md5-checksums.bin
+        - sha1-checksums.bin
+      - dependencies-accessors
+        - dependencies-accessors.lock
+        - gc.properties
+      - executionHistory
+        - executionHistory.bin
+        - executionHistory.lock
+      - fileChanges
+        - last-build.bin
+      - fileHashes
+        - fileHashes.bin
+        - fileHashes.lock
+        - resourceHashesCache.bin
+      - gc.properties
+      - vcsMetadata
+    - buildOutputCleanup
+      - buildOutputCleanup.lock
+      - cache.properties
+      - outputFiles.bin
+    - file-system.probe
+    - kotlin
+      - errors
+        - errors-1731926145176.log
+        - errors-1731926770896.log
+    - vcs-1
+      - gc.properties
+  - .kotlin
+    - errors
+      - errors-1730989591076.log
+      - errors-1731004786109.log
+      - errors-1731919447969.log
+      - errors-1731923426595.log
+      - errors-1731923828295.log
+      - errors-1731924149631.log
+      - errors-1731924423093.log
+      - errors-1731926145176.log
+      - errors-1731926770896.log
+    - sessions
+  - app
+    - build.gradle
+    - src
+      - debug
+        - AndroidManifest.xml
+      - main
+        - AndroidManifest.xml
+        - java
+          - io
+            - flutter
+              - app
+                - FlutterMultiDexApplication.java
+              - plugins
+                - GeneratedPluginRegistrant.java
+        - kotlin
+          - com
+            - example
+              - appcontainer
+                - MainActivity.kt
+        - res
+          - drawable
+            - launch_background.xml
+          - drawable-v21
+            - launch_background.xml
+          - mipmap-hdpi
+            - ic_launcher.png
+            - launcher_icons.png
+          - mipmap-mdpi
+            - ic_launcher.png
+            - launcher_icons.png
+          - mipmap-xhdpi
+            - ic_launcher.png
+            - launcher_icons.png
+          - mipmap-xxhdpi
+            - ic_launcher.png
+            - launcher_icons.png
+          - mipmap-xxxhdpi
+            - ic_launcher.png
+            - launcher_icons.png
+          - values
+            - styles.xml
+          - values-night
+            - styles.xml
+      - profile
+        - AndroidManifest.xml
+  - build.gradle
+  - gradle
+    - wrapper
+      - gradle-wrapper.jar
+      - gradle-wrapper.properties
+  - gradle.properties
+  - gradlew
+  - gradlew.bat
+  - local.properties
+  - settings.gradle
+- assets
+  - audio
+    - Alone(PaglaSongs).mp3
+    - Devil(PagalWorld.com.se).mp3
+    - Dil Galti Kar Baitha Hai(PagalWorld.com.se).mp3
+    - Dreamers(PaglaSongs).mp3
+    - Kahani Suno(PagalWorld.com.se).mp3
+    - Left-And-Right(PaglaSongs).mp3
+    - Love-Me-Like-You-Do(PaglaSongs).mp3
+    - Maan Meri Jaan(PagalWorld.com.se).mp3
+    - Malang Sajna(PagalWorld.com.se).mp3
+    - Raatan Lambiyan(PagalWorld.com.se).mp3
+    - Tere Hawaale(PagalWorld.com.se).mp3
+    - Tu Hai To Mujhe Phir Aur Kya Chahiye(PagalWorld.com.se).mp3
+    - _Pehli Baarish Mein(PagalWorld.com.se).mp3
+  - icons
+    - logo.jpg
+  - images
+    - Alan Walker-Alone.png
+    - app.webp
+    - app2.webp
+    - app3.webp
+    - app4.png
+    - app5.jpg
+    - app6.png
+    - app7.png
+    - app8.png
+    - arijit.jpeg
+    - asalmein1.jpeg
+    - baarishonm.jpeg
+    - bg1.avif
+    - bg2.avif
+    - bg3.avif
+    - bg4.avif
+    - charles.jpeg
+    - darshan.jpeg
+    - devil.jpeg
+    - dreamers.jpeg
+    - drs.jpeg
+    - duniya.jpeg
+    - edd.jpeg
+    - ekterfa1.jpeg
+    - images.jpeg
+    - iskdr.jpeg
+    - jb.jpeg
+    - jimin.jpeg
+    - jk.jpeg
+    - jubin.jpeg
+    - judiyaa.jpeg
+    - justin.jpeg
+    - kahanisuno.jpeg
+    - king.jpeg
+    - kk.jpeg
+    - lata.jpeg
+    - Left And Right; Charlie ft_ JK.jpeg
+    - left&right.jpeg
+    - logo.jpg
+    - loveme.jpeg
+    - maanmerijan.jpeg
+    - malangsajna.jpeg
+    - rattalambiya.jpeg
+    - rmm.jpeg
+    - selena.jpeg
+    - shreya.jpeg
+    - siddhu.jpeg
+    - song1.jpeg
+    - song2.jpeg
+    - song3.jpeg
+    - sonu.jpeg
+    - sriksri.jpeg
+    - terehawale.jpeg
+    - tuhto.jpeg
+    - vv.jpeg
+  - logos
+    - facebook.png
+    - google.png
+- error1.log
+- error12.log
+- errors.log
+- errorsss.log
+- flutter_01.png
+- ios
+  - .gitignore
+  - Flutter
+    - AppFrameworkInfo.plist
+    - Debug.xcconfig
+    - flutter_export_environment.sh
+    - Generated.xcconfig
+    - Release.xcconfig
+  - Runner
+    - AppDelegate.swift
+    - Assets.xcassets
+      - AppIcon.appiconset
+        - Contents.json
+        - Icon-App-1024x1024@1x.png
+        - Icon-App-20x20@1x.png
+        - Icon-App-20x20@2x.png
+        - Icon-App-20x20@3x.png
+        - Icon-App-29x29@1x.png
+        - Icon-App-29x29@2x.png
+        - Icon-App-29x29@3x.png
+        - Icon-App-40x40@1x.png
+        - Icon-App-40x40@2x.png
+        - Icon-App-40x40@3x.png
+        - Icon-App-50x50@1x.png
+        - Icon-App-50x50@2x.png
+        - Icon-App-57x57@1x.png
+        - Icon-App-57x57@2x.png
+        - Icon-App-60x60@2x.png
+        - Icon-App-60x60@3x.png
+        - Icon-App-72x72@1x.png
+        - Icon-App-72x72@2x.png
+        - Icon-App-76x76@1x.png
+        - Icon-App-76x76@2x.png
+        - Icon-App-83.5x83.5@2x.png
+      - LaunchImage.imageset
+        - Contents.json
+        - LaunchImage.png
+        - LaunchImage@2x.png
+        - LaunchImage@3x.png
+        - README.md
+    - Base.lproj
+      - LaunchScreen.storyboard
+      - Main.storyboard
+    - GeneratedPluginRegistrant.h
+    - GeneratedPluginRegistrant.m
+    - Info.plist
+    - Runner-Bridging-Header.h
+  - Runner.xcodeproj
+    - project.pbxproj
+    - project.xcworkspace
+      - contents.xcworkspacedata
+      - xcshareddata
+        - IDEWorkspaceChecks.plist
+        - WorkspaceSettings.xcsettings
+    - xcshareddata
+      - xcschemes
+        - Runner.xcscheme
+  - Runner.xcworkspace
+    - contents.xcworkspacedata
+    - xcshareddata
+      - IDEWorkspaceChecks.plist
+      - WorkspaceSettings.xcsettings
+  - RunnerTests
+    - RunnerTests.swift
+- lib
+  - main.dart
+  - src
+    - components
+      - Drawer_Section.dart
+      - Profile.dart
+      - Settings.dart
+    - home
+      - BlueFamily.dart
+      - HomePage.dart
+      - MusicApi_screen.dart
+      - MusicDetailPage.dart
+      - PlayListScreen.dart
+      - RecentPlayScreen.dart
+      - SongScreen.dart
+      - Splash_screen.dart
+    - models
+      - artist_model.dart
+      - darshan_model.dart
+      - JK_songs.dart
+      - JM_songs.dart
+      - Lata_songs.dart
+      - MusicDataResponse.dart
+      - song_model.dart
+      - TopScrollModel.dart
+    - services
+      - ApiService.dart
+    - utilities
+      - constants.dart
+    - widgets
+      - artist_card.dart
+      - darshanhit_card.dart
+      - player_buttons.dart
+      - section_header.dart
+      - seekbar.dart
+      - song_card.dart
+      - topscoll_card.dart
+      - widgets.dart
+- pubspec.lock
+- pubspec.yaml
+- README.md
+- test
+  - widget_test.dart
