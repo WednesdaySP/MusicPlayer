@@ -46,6 +46,7 @@ dependencies:
   screens: ^2.5.0
   url_launcher: ^6.1.11
   http: ^0.13.6
+  firebase_core: ^3.4.0
   
 
 dev_dependencies:
